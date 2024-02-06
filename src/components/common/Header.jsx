@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const HeaderWrapper = styled.header`
   height: 60px;
@@ -31,14 +31,19 @@ const StyledLink = styled(Link)`
   text-align: center;
   box-sizing: border-box;
   margin: auto 0;
-  font-weight: ${(props) => (props.isactive ? '900' : '')} ;
+  font-weight: ${(props) => (props.isactive === 'true' ? '900' : 'normal')} ;
 `;
 
 export const Header = () => {
+  const { pathname } = useLocation();
   return <HeaderWrapper>
     <Menu>
-      <StyledLink to='/' isactive='true'>首頁</StyledLink>
-      <StyledLink to='/login'>登入</StyledLink>
+      <StyledLink to='/' isactive={pathname === '/' ? 'true' : 'false'}>
+        首頁
+      </StyledLink>
+      <StyledLink to='/login' isactive={pathname === '/login' ? 'true' : 'false'}>
+        登入
+      </StyledLink>
     </Menu>
   </HeaderWrapper>;
 };
