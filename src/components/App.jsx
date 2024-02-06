@@ -16,8 +16,16 @@ function App() {
     <>
       <GlobalStyle />
       <h1>Hello Styled Components!</h1>
-      <Button>測試</Button>
-      <Button disabled>測試</Button>
+      <Button>標準</Button>
+      <Button disabled>disabled</Button>
+      <Button secondary>測試props</Button>
+      <Button large>large按鈕</Button>
+      <Button large secondary>
+        large按鈕
+      </Button>
+      <Button large disabled>
+        large按鈕
+      </Button>
     </>
   );
 }
