@@ -10,6 +10,9 @@ body{
   font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
   min-height: 100vh;
 }
+a{
+  text-decoration: none;
+}
 `;
 
 function App() {
