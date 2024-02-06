@@ -7,7 +7,8 @@ body{
   min-height: 100vh;
   margin: 0;
   color: black;
-  font-family: 'Protest Riot', sans-serif;
+  font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
+  min-height: 100vh;
 }
 `;
 
@@ -15,7 +16,6 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Hello Styled Components!</h1>
       <Outlet />
     </>
   );
