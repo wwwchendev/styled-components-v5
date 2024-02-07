@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { Input } from '@/components/common';
 
 // 繼承了Input元件的樣式，並在此基礎上添加了指定的樣式。
-const PasswordInputStyled = styled(Input)`
+const PasswordInputStyled = styled(Input).attrs(() => ({
+  type: 'password',
+  placeholder: '密碼',
+}))`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 `;

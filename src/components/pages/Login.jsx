@@ -34,8 +34,6 @@ const Login = () => {
           onChange={handleInputChange}
         />
         <PasswordInput
-          type='password'
-          placeholder='密碼'
           name='password'
           value={formFields.password}
           onChange={handleInputChange}
