@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
   color: white;
-  background: ${props => (props.secondary ? '#fdd54f' : '#f8049c')};
+  background: ${props => (props.$secondary ? '#fdd54f' : '#f8049c')};
   font-weight: bold;
   /* padding: ${props => (props.large ? '16px' : '8px')}; */
   ${p =>
-    p.large
+    p.$large
       ? css`
           padding: 10px;
           border-radius: 5px;

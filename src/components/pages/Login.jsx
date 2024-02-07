@@ -75,13 +75,13 @@ const Login = () => {
             />
           </>
         )}
-        <Button type='submit' large disabled={loading}>
+        <Button type='submit' $large disabled={loading}>
           {loading ? '登入中' : '登入'}
         </Button>
         {!loading && (
           <>
             <div className='alt-text'>或</div>
-            <Button type='button' secondary>
+            <Button type='button' $secondary='true'>
               註冊
             </Button>
           </>

@@ -7,8 +7,8 @@ const PasswordInputWrapper = styled.div`
 `;
 
 // 繼承了Input元件的樣式，並在此基礎上添加了指定的樣式。
-const PasswordInputStyled = styled(Input).attrs(({ showPassword }) => ({
-  type: showPassword ? 'text' : 'password',
+const PasswordInputStyled = styled(Input).attrs(({ $showPassword }) => ({
+  type: $showPassword ? 'text' : 'password',
   placeholder: '密碼',
 }))`
   border-top-right-radius: 0;
@@ -39,7 +39,7 @@ export const PasswordInput = props => {
   return (
     <>
       <PasswordInputWrapper>
-        <PasswordInputStyled {...props} showPassword={showPassword} />
+        <PasswordInputStyled {...props} $showPassword={showPassword} />
         <ToggleButton
           onClick={() => {
             setShowPassword(p => !p);
