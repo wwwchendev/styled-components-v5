@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 // 簡化樣式化元件的內部代碼: 將樣式邏輯分離到單獨函數中
 const largeStyles = ({ large }) => {
@@ -51,3 +52,10 @@ export const Button = styled.button`
     transform: initial;
   }
 `;
+
+// 使用propTypes實現類型安全
+// 在開發過程中捕獲潛在的類型錯誤，從而提高代碼的健壯性和可維護性。
+Button.propTypes = {
+  large: PropTypes.bool,
+  secondary: PropTypes.bool,
+};
