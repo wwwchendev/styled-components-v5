@@ -18,6 +18,7 @@ const Form = styled.form`
   box-sizing: border-box;
   color: black;
   border-radius: 4px;
+  margin: 0 auto;
 
   .alt-text {
     text-align: center;

@@ -14,7 +14,11 @@ const Content = styled.main`
   h5,
   h6 {
     font-family: 'Protest Riot', sans-serif;
+    text-align: center;
   }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const PageLayout = ({ children }) => {
