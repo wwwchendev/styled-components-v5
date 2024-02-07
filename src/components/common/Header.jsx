@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ const HeaderWrapper = styled.header`
 
 // 自定義Html元素樣式
 const Menu = styled.nav`
-  display: block;
+  display: ${props => (props.open ? 'block' : 'none')};
   position: absolute;
   width: 100%;
   top: 60px;
@@ -36,6 +37,25 @@ const Menu = styled.nav`
   }
 `;
 
+// 漢堡選單
+const MobileMenuIcon = styled.div`
+  margin: auto 0 auto auto;
+  width: 25px;
+  min-width: 25px;
+  padding: 5px;
+  cursor: pointer;
+  > span {
+    display: block;
+    height: 3px;
+    background: #000;
+    margin: 5px 0;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 // 自定義React元件樣式
 const StyledLink = styled(Link)`
   padding: 4px 8px;
@@ -49,9 +69,19 @@ const StyledLink = styled(Link)`
 
 export const Header = () => {
   const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <HeaderWrapper>
-      <Menu>
+      <MobileMenuIcon
+        onClick={() => {
+          setMenuOpen(prev => !prev);
+        }}
+      >
+        <span />
+        <span />
+        <span />
+      </MobileMenuIcon>
+      <Menu open={menuOpen}>
         <StyledLink to='/' isactive={pathname === '/' ? 'true' : 'false'}>
           首頁
         </StyledLink>
