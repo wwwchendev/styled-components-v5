@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -15,12 +15,17 @@ a{
 }
 `;
 
+const theme = {
+  primaryColor: '#f8049c',
+  secondaryColor: '#fdd54f',
+};
+
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Outlet />
-    </>
+    </ThemeProvider>
   );
 }
 

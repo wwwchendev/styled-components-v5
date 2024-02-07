@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
+import { ToggleThemeButton } from '@/components/common';
 
 const headerHeight = '60px';
 const HeaderWrapper = styled.header`
@@ -11,8 +12,12 @@ const HeaderWrapper = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background-image: linear-gradient(to right, #f8049c, #fdd54f);
-  border-bottom: 3px solid #fdd54f;
+  background-image: linear-gradient(
+    to right,
+    ${props => props.theme.primaryColor},
+    ${props => props.theme.secondaryColor}
+  );
+  border-bottom: 3px solid ${props => props.theme.secondaryColor};
 `;
 
 // 自定義Html元素樣式
@@ -24,7 +29,7 @@ const Menu = styled.nav`
   left: 0;
   padding: 8px;
   box-sizing: border-box;
-  border-bottom: 3px solid #fdd54f;
+  border-bottom: 3px solid ${props => props.theme.secondaryColor};
   background: white;
   @media (min-width: 768px) {
     display: flex;
@@ -92,6 +97,7 @@ export const Header = () => {
         >
           登入
         </StyledLink>
+        <ToggleThemeButton />
       </Menu>
     </HeaderWrapper>
   );
