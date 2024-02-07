@@ -1,32 +1,37 @@
-import { Button } from '@/components/common';
-import { createGlobalStyle } from 'styled-components';
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { theme as LightTheme } from '@/themes/light.jsx';
+import { theme as DarkTheme } from '@/themes/dark.jsx';
 
 const GlobalStyle = createGlobalStyle`
 body{
-  background: white;
+  background: ${props => props.theme.bodyBackgroundColor};
   min-height: 100vh;
   margin: 0;
-  color: black;
-  font-family: 'Protest Riot', sans-serif;
+  color: ${props => props.theme.bodyFontColor};
+  font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
+  min-height: 100vh;
+}
+a{
+  text-decoration: none;
 }
 `;
 
 function App() {
+  const [theme, setTheme] = useState(LightTheme);
   return (
-    <>
+    <ThemeProvider
+      theme={{
+        ...theme,
+        setTheme: () => {
+          setTheme(prev => (prev.id === 'light' ? DarkTheme : LightTheme));
+        },
+      }}
+    >
       <GlobalStyle />
-      <h1>Hello Styled Components!</h1>
-      <Button>標準</Button>
-      <Button disabled>disabled</Button>
-      <Button secondary>測試props</Button>
-      <Button large>large按鈕</Button>
-      <Button large secondary>
-        large按鈕
-      </Button>
-      <Button large disabled>
-        large按鈕
-      </Button>
-    </>
+      <Outlet />
+    </ThemeProvider>
   );
 }
 
