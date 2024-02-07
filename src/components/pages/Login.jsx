@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { PageLayout, Input, PasswordInput, Button } from '@/components/common';
+import {
+  PageLayout,
+  Input,
+  PasswordInput,
+  Button,
+  Spinner,
+} from '@/components/common';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 
@@ -51,20 +57,26 @@ const Login = () => {
     <PageLayout>
       <h1>登入</h1>
       <Form onSubmit={handleSubmit}>
-        <Input
-          type='text'
-          placeholder='使用者名稱'
-          name='username'
-          value={formFields.username}
-          onChange={handleInputChange}
-        />
-        <PasswordInput
-          name='password'
-          value={formFields.password}
-          onChange={handleInputChange}
-        />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <Input
+              type='text'
+              placeholder='使用者名稱'
+              name='username'
+              value={formFields.username}
+              onChange={handleInputChange}
+            />
+            <PasswordInput
+              name='password'
+              value={formFields.password}
+              onChange={handleInputChange}
+            />
+          </>
+        )}
         <Button type='submit' large disabled={loading}>
-          {loading ? '處理中' : '登入'}
+          {loading ? '登入中' : '登入'}
         </Button>
         {!loading && (
           <>
