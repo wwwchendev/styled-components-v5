@@ -6,10 +6,10 @@ import { theme as DarkTheme } from '@/themes/dark.jsx';
 
 const GlobalStyle = createGlobalStyle`
 body{
-  background: white;
+  background: ${props => props.theme.bodyBackgroundColor};
   min-height: 100vh;
   margin: 0;
-  color: black;
+  color: ${props => props.theme.bodyFontColor};
   font-family: 'Noto Sans TC', '微軟正黑體', 'Microsoft JhengHei', sans-serif;
   min-height: 100vh;
 }
