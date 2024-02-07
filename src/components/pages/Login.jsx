@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PageLayout, Input } from '@/components/common';
+import { PageLayout, Input, PasswordInput } from '@/components/common';
 import styled from 'styled-components';
 
 const Form = styled.form`
@@ -33,7 +33,7 @@ const Login = () => {
           value={formFields.username}
           onChange={handleInputChange}
         />
-        <Input
+        <PasswordInput
           type='password'
           placeholder='密碼'
           name='password'
