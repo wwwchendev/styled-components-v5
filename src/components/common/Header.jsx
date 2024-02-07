@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { ToggleThemeButton } from '@/components/common';
 
@@ -76,6 +76,9 @@ const StyledLink = styled(Link)`
 export const Header = () => {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  // 解構賦值取得ThemeContext上下文
+  const { id, setTheme } = useContext(ThemeContext);
+
   return (
     <HeaderWrapper>
       <MobileMenuIcon
@@ -97,7 +100,8 @@ export const Header = () => {
         >
           登入
         </StyledLink>
-        <ToggleThemeButton />
+        {/* 將ThemeContext上下文的變數傳遞給ToggleThemeButton 元件 */}
+        <ToggleThemeButton isActive={id === 'dark'} onToggle={setTheme} />
       </Menu>
     </HeaderWrapper>
   );

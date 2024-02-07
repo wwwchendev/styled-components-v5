@@ -21,13 +21,16 @@ const Notch = styled.div`
   background: #fff;
   border-radius: 50%;
   transition: transform 0.1 linear;
-  transform: translate(${props => (props.isActive ? '26px' : '1px')});
+  transform: translate(${props => (props.$isActive ? '26px' : '1px')});
 `;
 
-export const ToggleThemeButton = ({ isActive }) => {
+export const ToggleThemeButton = ({ isActive, onToggle }) => {
+  // 元件接受兩個屬性
+  // 1. isActive用於決定Notch位置
+  // 2. onToggle用於點擊事件處理
   return (
-    <ToggleWrapper>
-      <Notch isActive={isActive} />
+    <ToggleWrapper onClick={onToggle}>
+      <Notch $isActive={isActive} />
     </ToggleWrapper>
   );
 };
