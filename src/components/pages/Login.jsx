@@ -24,6 +24,12 @@ const Form = styled.form`
     text-align: center;
     margin: 10px 0;
   }
+  > ${Input} {
+    margin-top: 20px;
+  }
+  ${Button}:first-of-type {
+    margin-top: 40px;
+  }
 `;
 let timeout;
 
@@ -62,6 +68,7 @@ const Login = () => {
           <Spinner />
         ) : (
           <>
+            <span>請輸入帳號密碼</span>
             <Input
               type='text'
               placeholder='使用者名稱'
