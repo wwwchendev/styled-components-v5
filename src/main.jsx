@@ -1,6 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
 import App from '@/components/App.jsx';
@@ -9,21 +8,21 @@ import Login from './components/pages/Login';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/",
-        element: <Home />
+        path: '/',
+        element: <Home />,
       },
       {
-        path: "/login",
-        element: <Login />
-      }
-    ]
-  }
-])
+        path: '/login',
+        element: <Login />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <RouterProvider router={router} />,
 );

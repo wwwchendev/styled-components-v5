@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { PageLayout, Input } from '@/components/common';
 import styled from 'styled-components';
 

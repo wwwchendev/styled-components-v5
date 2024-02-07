@@ -2,8 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
+const headerHeight = '60px';
 const HeaderWrapper = styled.header`
-  height: 60px;
+  height: ${headerHeight};
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -19,7 +20,7 @@ const Menu = styled.nav`
   display: ${props => (props.open ? 'block' : 'none')};
   position: absolute;
   width: 100%;
-  top: 60px;
+  top: ${headerHeight};
   left: 0;
   padding: 8px;
   box-sizing: border-box;

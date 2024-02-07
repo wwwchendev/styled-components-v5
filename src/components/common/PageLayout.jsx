@@ -21,10 +21,7 @@ export const PageLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
     </>
   );
 };
-
