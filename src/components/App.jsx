@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { theme as LightTheme } from '@/themes/light.jsx';
+import { theme as DarkTheme } from '@/themes/dark.jsx';
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -15,14 +18,17 @@ a{
 }
 `;
 
-const theme = {
-  primaryColor: '#f8049c',
-  secondaryColor: '#fdd54f',
-};
-
 function App() {
+  const [theme, setTheme] = useState(LightTheme);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={{
+        ...theme,
+        setTheme: () => {
+          setTheme(prev => (prev.id === 'light' ? DarkTheme : LightTheme));
+        },
+      }}
+    >
       <GlobalStyle />
       <Outlet />
     </ThemeProvider>
