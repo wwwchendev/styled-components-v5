@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
   color: white;
-  background: ${props => (props.secondary ? 'black' : '#f8049c')};
+  background: ${props => (props.secondary ? '#fdd54f' : '#f8049c')};
   font-weight: bold;
   /* padding: ${props => (props.large ? '16px' : '8px')}; */
   ${p =>
@@ -22,9 +22,13 @@ export const Button = styled.button`
   width: 100%;
   display: block;
   white-space: none;
-
+  cursor: pointer;
+  &:active {
+    transform: scale(0.98);
+  }
   &:disabled {
     background: #eee;
     color: #666;
+    transform: initial;
   }
 `;
