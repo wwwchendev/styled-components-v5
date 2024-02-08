@@ -6,22 +6,27 @@ import App from '@/components/App.jsx';
 import Home from '@/components/pages/Home';
 import Login from './components/pages/Login';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        {
+          path: '/',
+          element: <Home />,
+        },
+        {
+          path: '/login',
+          element: <Login />,
+        },
+      ],
+    },
+  ],
   {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '/',
-        element: <Home />,
-      },
-      {
-        path: '/login',
-        element: <Login />,
-      },
-    ],
+    basename: '/styled-components-v5',
   },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />,
